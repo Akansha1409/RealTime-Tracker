@@ -7,21 +7,21 @@ if(navigator.geolocation){
             socket.emit("send-location",{latitude,longitude});
         },
         (error)=>{
-            console.log(error);
+            console.log('Geolocation:',error);
         },
         {
             enableHighAccuracy:true,
             timeout:5000,
             maximumAge:0,//caching is 0
         }
-    )
+    );
 }
 const map=L.map("map").setView([0,0],10);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
     attribution:"&copy; <a href='https://www.openstreetmap.org/copyright'>"
-}
-    ).addTo(map);
+
+    }).addTo(map);
 
     const markers={};
 
